@@ -5,7 +5,8 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract public class DataRegInstruction extends DataInstruction implements Serializable {
-    public static final long serialVersionUID = 4226724935141470072L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 4226724935141470072L;
 
     private byte register;
 
@@ -13,7 +14,7 @@ abstract public class DataRegInstruction extends DataInstruction implements Seri
         return register;
     }
 
-    public void setRegister(byte register) {
+    void setRegister(byte register) {
         this.register = Registers.validateRegister(register);
     }
 

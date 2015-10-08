@@ -11,8 +11,6 @@ public interface Mutator {
 
     int getNextInt();
 
-    long getNextLong();
-
     double getNextDouble();
 
     byte getNextByte();
@@ -21,5 +19,4 @@ public interface Mutator {
 
     boolean skipNextInstruction();
 
-    boolean nextBoolean();
 }

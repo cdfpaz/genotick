@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MultiplyRegisterByVariable extends RegVarInstruction  implements Serializable {
-    public static final long serialVersionUID = 5195803067958383416L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 5195803067958383416L;
 
-    public MultiplyRegisterByVariable(MultiplyRegisterByVariable i) {
+    private MultiplyRegisterByVariable(MultiplyRegisterByVariable i) {
         this.setRegister(i.getRegister());
         this.setVariableArgument(i.getVariableArgument());
     }

@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveRelativeDataToVariable extends DataVarInstruction  implements Serializable {
-    public static final long serialVersionUID = 1308815201295846632L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 1308815201295846632L;
 
-    public MoveRelativeDataToVariable(MoveRelativeDataToVariable i) {
+    private MoveRelativeDataToVariable(MoveRelativeDataToVariable i) {
         this.setDataOffsetIndex(i.getDataOffsetIndex());
         this.setDataTableIndex(i.getDataTableIndex());
         this.setVariableArgument(i.getVariableArgument());

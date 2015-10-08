@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class RegVarJumpInstruction extends RegVarInstruction implements JumpInstruction, Serializable {
-    public static final long serialVersionUID = 3071849519057144513L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 3071849519057144513L;
 
     private int address;
 
-    public RegVarJumpInstruction() {
+    RegVarJumpInstruction() {
         address = 0;
     }
 
@@ -18,7 +19,7 @@ abstract class RegVarJumpInstruction extends RegVarInstruction implements JumpIn
         return address;
     }
 
-    public void setAddress(int address) {
+    void setAddress(int address) {
         this.address = address;
     }
 

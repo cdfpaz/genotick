@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class SubtractDoubleFromVariable extends VarDoubleInstruction  implements Serializable {
-    public static final long serialVersionUID = 8293191797685003121L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 8293191797685003121L;
 
-    public SubtractDoubleFromVariable(SubtractDoubleFromVariable i) {
+    private SubtractDoubleFromVariable(SubtractDoubleFromVariable i) {
         this.setVariableArgument(i.getVariableArgument());
         this.setDoubleArgument(i.getDoubleArgument());
     }

@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class DecrementVariable extends VarInstruction implements Serializable {
-    public static final long serialVersionUID = -3260981819622564798L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -3260981819622564798L;
 
-    public DecrementVariable(DecrementVariable i) {
+    private DecrementVariable(DecrementVariable i) {
         this.setVariableArgument(i.getVariableArgument());
     }
 

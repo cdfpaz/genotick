@@ -1,7 +1,5 @@
 package com.alphatica.genotick.population;
 
-import com.alphatica.genotick.population.PopulationDAO;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -70,7 +68,7 @@ public class PopulationDAOFileSystem implements PopulationDAO {
         };
     }
 
-    private Program getProgram(ProgramName name) throws IOException, ClassNotFoundException, EOFException {
+    private Program getProgram(ProgramName name) throws ClassNotFoundException, IOException {
         File file = new File(programsPath + File.separator + name.toString() + FILE_EXTENSION);
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             Program program = (Program) ois.readObject();
@@ -115,9 +113,12 @@ public class PopulationDAOFileSystem implements PopulationDAO {
     }
 
     @Override
-    public void setSettings(String settings) {
-        new File(settings).mkdirs();
-        this.programsPath = settings;
+    public void setSettings(String pathToDir) {
+        boolean success = new File(pathToDir).mkdirs();
+        if(!success) {
+            throw  new DAOException("Unable to delete dir: " + pathToDir);
+        }
+        this.programsPath = pathToDir;
     }
 
 
@@ -142,13 +143,20 @@ public class PopulationDAOFileSystem implements PopulationDAO {
         return new File(programsPath + File.separator + name.toString() + FILE_EXTENSION);
     }
     private void saveProgramToFile(Program program, File file)  {
-        if(file.exists())
-            file.delete();
+        deleteFileIfExists(file);
         try(ObjectOutputStream ous = new ObjectOutputStream(new BufferedOutputStream( new FileOutputStream(file)))) {
             ous.writeObject(program);
             ous.close();
         } catch (IOException ex) {
             throw new DAOException(ex);
+        }
+    }
+
+    private void deleteFileIfExists(File file) {
+        if(!file.exists())
+            return;
+        if(!file.delete()) {
+            throw new DAOException("Unable to delete file: " + file);
         }
     }
 

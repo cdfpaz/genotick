@@ -2,7 +2,6 @@ package com.alphatica.genotick.ui;
 
 import com.alphatica.genotick.genotick.Application;
 import com.alphatica.genotick.genotick.MainSettings;
-import com.alphatica.genotick.genotick.TimePoint;
 
 @SuppressWarnings("unused")
 class DefaultInputs implements UserInput {

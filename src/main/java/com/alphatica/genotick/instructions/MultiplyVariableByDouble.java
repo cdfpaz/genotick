@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MultiplyVariableByDouble extends VarDoubleInstruction  implements Serializable {
-    public static final long serialVersionUID = -488671617233131162L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -488671617233131162L;
 
-    public MultiplyVariableByDouble(MultiplyVariableByDouble i) {
+    private MultiplyVariableByDouble(MultiplyVariableByDouble i) {
         this.setDoubleArgument(i.getDoubleArgument());
         this.setVariableArgument(i.getVariableArgument());
     }

@@ -46,12 +46,8 @@ class SimpleMutator implements Mutator {
 
     @Override
     public Instruction getRandomInstruction() {
-        Instruction instruction;
-        //do {
-            int index = random.nextInt(totalInstructions);
-            instruction = createNewInstruction(index);
-        //} while(!settings.functionsEnabled() && (instruction instanceof CallFunction));
-        return instruction;
+        int index = random.nextInt(totalInstructions);
+        return createNewInstruction(index);
     }
 
     private Instruction createNewInstruction(int index) {
@@ -78,11 +74,6 @@ class SimpleMutator implements Mutator {
     }
 
     @Override
-    public long getNextLong() {
-        return random.nextLong();
-    }
-
-    @Override
     public double getNextDouble() {
         return random.nextDouble();
     }
@@ -100,10 +91,5 @@ class SimpleMutator implements Mutator {
     @Override
     public boolean skipNextInstruction() {
         return random.nextDouble() < settings.getSkipInstructionProbability();
-    }
-
-    @Override
-    public boolean nextBoolean() {
-        return random.nextBoolean();
     }
 }

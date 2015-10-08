@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveVariableToVariable extends VarVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -8962949754876920077L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -8962949754876920077L;
 
-    public MoveVariableToVariable(MoveVariableToVariable i) {
+    private MoveVariableToVariable(MoveVariableToVariable i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
     }

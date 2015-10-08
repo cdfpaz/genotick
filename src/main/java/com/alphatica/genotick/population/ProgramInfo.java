@@ -11,9 +11,9 @@ public class ProgramInfo {
     private final long lastChildOutcomes;
     private final long length;
     private final int totalPredictions;
-    private DecimalFormat format = new DecimalFormat("0.00");
-    private int totalOutcomes;
-    private int bias;
+    private final DecimalFormat format = new DecimalFormat("0.00");
+    private final int totalOutcomes;
+    private final int bias;
 
     @Override
     public String toString() {

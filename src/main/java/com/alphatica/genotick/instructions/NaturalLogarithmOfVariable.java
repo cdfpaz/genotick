@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class NaturalLogarithmOfVariable extends VarVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -3112125542251877233L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -3112125542251877233L;
 
-    public NaturalLogarithmOfVariable(NaturalLogarithmOfVariable i) {
+    private NaturalLogarithmOfVariable(NaturalLogarithmOfVariable i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
     }

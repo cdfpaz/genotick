@@ -7,11 +7,12 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpTo extends Instruction implements JumpInstruction, Serializable {
-    public static final long serialVersionUID = 8996188434274451095L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 8996188434274451095L;
 
     private int address;
 
-    public JumpTo(JumpTo i) {
+    private JumpTo(JumpTo i) {
         this.address = i.getAddress();
     }
 

@@ -18,7 +18,7 @@ class DebugParams {
     OutputStream stream;
     String allowedPattern;
     boolean showTime;
-    Set<String> allowedClasses;
+    final Set<String> allowedClasses;
 
     DebugParams() {
         prefix = null;
@@ -40,37 +40,52 @@ class DebugParams {
         allowedClasses = new HashSet<>(params.allowedClasses);
     }
 }
+
+@SuppressWarnings("SameParameterValue")
 public class Debug {
     private static final DebugParams params = new DebugParams();
     private static HashMap<Integer,Instance> debugInstances;
 
+    @SuppressWarnings("unused")
     public static Instance getInstance() {
         return new Instance(params);
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static void setOutputStream(OutputStream outputStream) {
         Debug.setOutPutStream(params, outputStream);
     }
+
+    @SuppressWarnings("unused")
     public static void setPrefix(String prefix) {
         Debug.setPrefix(params, prefix);
     }
+
     public static void d(Object... output) {
         Debug.log(params, output);
     }
+
+    @SuppressWarnings("unused")
     public static void setDebugInfoNone() {
         Debug.setDebugInfo(params,DebugInfo.NONE);
     }
+
+    @SuppressWarnings("unused")
     public static void setDebugInfoFileAndLine() {
         Debug.setDebugInfo(params,DebugInfo.LINE);
     }
+
+    @SuppressWarnings("unused")
     public static void setDebugInfoFullTrace() {
         Debug.setDebugInfo(params,DebugInfo.TRACE);
     }
 
+    @SuppressWarnings("unused")
     public static void setAllowedPattern(String regex) {
         Debug.setAllowedPattern(params,regex);
     }
 
+    @SuppressWarnings("unused")
     public static void setEnabled(boolean enabled) {
         Debug.setEnabled(params,enabled);
     }
@@ -79,10 +94,12 @@ public class Debug {
         Debug.setShowTime(params,enabled);
     }
 
+    @SuppressWarnings("unused")
     public static  void allowedClasses(Class... classes) {
         Debug.allowClasses(params, classes);
     }
 
+    @SuppressWarnings("unused")
     public static void allowAllClasses() {
         Debug.allowAllClasses(params);
     }
@@ -95,12 +112,14 @@ public class Debug {
         Debug.setOutputStream(new ToFile(path));
     }
 
+    @SuppressWarnings("unused")
     public static void addDebug(Instance instance, int id) {
         if(debugInstances == null)
             debugInstances = new HashMap<>();
         debugInstances.put(id,instance);
     }
 
+    @SuppressWarnings("unused")
     public static Instance getDebug(int i) {
         if(debugInstances == null)
             throw new RuntimeException("No debug instances");
@@ -130,6 +149,7 @@ public class Debug {
         String name = stackTraceElements[0].getFileName();
         if(name == null)
             return false;
+        //noinspection SimplifiableIfStatement
         if(element == null || element.getFileName() == null)
             return false;
         return element.getFileName().equals(name);
@@ -233,15 +253,15 @@ public class Debug {
 
     private static boolean isClassAllowed(Set<String> names) {
         StackTraceElement [] stackTraceElements = new Throwable().getStackTrace();
-        for(int i = 0; i < stackTraceElements.length; i++) {
-            if(isStackElementDebugClassFile(stackTraceElements[i]))
+        for (StackTraceElement stackTraceElement : stackTraceElements) {
+            if (isStackElementDebugClassFile(stackTraceElement))
                 continue;
-            return names.contains(stackTraceElements[i].getClassName());
+            return names.contains(stackTraceElement.getClassName());
         }
         return false;
     }
     private static void printTime(DebugParams par) {
-        if(par.showTime == false)
+        if(!par.showTime)
             return;
         DateFormat df = new SimpleDateFormat("Y/M/d HH:mm:ss:S",Locale.getDefault());
         Date date = new Date();
@@ -253,7 +273,7 @@ public class Debug {
         switch (par.debugInfo) {
             case NONE: return;
             case LINE: printSourceCodeFileAndLine(par); return;
-            case TRACE: printSourceCodeStackTrace(par);  return;
+            case TRACE: printSourceCodeStackTrace(par);
         }
     }
 
@@ -317,32 +337,40 @@ public class Debug {
         params.classEnable = enabled;
     }
 
+    @SuppressWarnings("unused")
     public static class Instance  {
         final DebugParams params;
         public Instance(DebugParams par) {
             params = new DebugParams(par);
         }
+
         public Instance() {
             params = new DebugParams();
         }
         public void setOutputStream(OutputStream outputStream) {
             Debug.setOutPutStream(params,outputStream);
         }
+
         public void setPrefix(String prefix) {
             Debug.setPrefix(params,prefix);
         }
+
         public void d(Object... output) {
             Debug.log(params, output);
         }
+
         public void setDebugInfoNone() {
             Debug.setDebugInfo(params,DebugInfo.NONE);
         }
+
         public void setDebugInfoFileAndLine() {
             Debug.setDebugInfo(params,DebugInfo.LINE);
         }
+
         public void setDebugInfoFullTrace() {
             Debug.setDebugInfo(params,DebugInfo.TRACE);
         }
+
         public void setAllowedPattern(String regex) {
             Debug.setAllowedPattern(params,regex);
         }
@@ -362,15 +390,18 @@ public class Debug {
         public void toFile(String path) {
             this.setOutputStream(new ToFile(path));
         }
+
         public void allowAllClasses() {
             Debug.allowAllClasses(params);
         }
     }
+
     private static class ToFile extends OutputStream {
         final File file;
         public ToFile(String path) {
             file = new File(path);
-            file.delete();
+            if(file.delete())
+                throw new RuntimeException("Unable to delete file: " + path);
         }
 
         @Override
@@ -379,7 +410,7 @@ public class Debug {
         }
 
         @Override
-        public void write(byte [] bytes) {
+        public void write(@SuppressWarnings("NullableProblems") byte [] bytes) {
             try(BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file,true))) {
                 bos.write(bytes);
                 bos.close();

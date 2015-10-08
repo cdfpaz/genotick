@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class DivideRegisterByVariable extends RegVarInstruction implements Serializable {
-    public static final long serialVersionUID = -7846370685515767796L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -7846370685515767796L;
 
-    public DivideRegisterByVariable(DivideRegisterByVariable i) {
+    private DivideRegisterByVariable(DivideRegisterByVariable i) {
         this.setRegister(i.getRegister());
         this.setVariableArgument(i.getVariableArgument());
     }

@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class DivideRegisterByDouble extends RegDoubleInstruction implements Serializable {
-    public static final long serialVersionUID = 6495799568812947637L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 6495799568812947637L;
 
-    public DivideRegisterByDouble(DivideRegisterByDouble i) {
+    private DivideRegisterByDouble(DivideRegisterByDouble i) {
         this.setDoubleArgument(i.getDoubleArgument());
         this.setRegister(i.getRegister());
     }

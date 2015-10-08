@@ -1,8 +1,12 @@
 package com.alphatica.genotick.population;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class AbsoluteWeightComparator implements Comparator<ProgramInfo> {
+class AbsoluteWeightComparator implements Comparator<ProgramInfo>, Serializable {
+
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 4466317313399016583L;
 
     @Override
     public int compare(ProgramInfo programInfo1, ProgramInfo programInfo2) {

@@ -81,7 +81,8 @@ abstract public class Processor {
 
     abstract public void execute(ReturnVariableAsResult ins);
 
-    abstract public void execute(@SuppressWarnings("UnusedParameters") TerminateInstructionList ins);
+    @SuppressWarnings("UnusedParameters")
+    abstract public void execute(TerminateInstructionList ins);
 
     abstract public void execute(MoveDataToRegister ins);
 
@@ -90,8 +91,6 @@ abstract public class Processor {
     abstract public void execute(MoveRelativeDataToRegister ins);
 
     abstract public void execute(MoveRelativeDataToVariable ins);
-
-    //abstract public void execute(CallFunction ins);
 
     abstract public void execute(JumpTo ins);
 

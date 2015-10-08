@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveDoubleToVariable extends VarDoubleInstruction  implements Serializable {
-    public static final long serialVersionUID = -1120463586513743256L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -1120463586513743256L;
 
-    public MoveDoubleToVariable(MoveDoubleToVariable i) {
+    private MoveDoubleToVariable(MoveDoubleToVariable i) {
         this.setVariableArgument(i.getVariableArgument());
         this.setDoubleArgument(i.getDoubleArgument());
     }

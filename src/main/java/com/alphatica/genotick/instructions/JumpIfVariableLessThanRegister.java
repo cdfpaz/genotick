@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpIfVariableLessThanRegister extends RegVarJumpInstruction implements Serializable{
-    public static final long serialVersionUID = -4297622848412859898L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -4297622848412859898L;
 
-    public JumpIfVariableLessThanRegister(JumpIfVariableLessThanRegister i) {
+    private JumpIfVariableLessThanRegister(JumpIfVariableLessThanRegister i) {
         this.setRegister(i.getRegister());
         this.setVariableArgument(i.getVariableArgument());
         this.setAddress(i.getAddress());

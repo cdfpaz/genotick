@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class DecrementRegister extends RegInstruction implements Serializable {
-    public static final long serialVersionUID = -7630060970364313126L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -7630060970364313126L;
 
-    public DecrementRegister(DecrementRegister i) {
+    private DecrementRegister(DecrementRegister i) {
         this.setRegister(i.getRegister());
     }
 

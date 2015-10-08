@@ -5,9 +5,11 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class AddDoubleToVariable extends VarDoubleInstruction implements Serializable{
-    public static final long serialVersionUID = -6197886980513050186L;
 
-    public AddDoubleToVariable(AddDoubleToVariable i) {
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -6197886980513050186L;
+
+    private AddDoubleToVariable(AddDoubleToVariable i) {
         this.setDoubleArgument(i.getDoubleArgument());
         this.setVariableArgument(i.getVariableArgument());
         this.setVariableArgument(i.getVariableArgument());

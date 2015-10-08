@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveRelativeDataToRegister extends DataRegInstruction  implements Serializable {
-    public static final long serialVersionUID = -2247072351675972683L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -2247072351675972683L;
 
-    public MoveRelativeDataToRegister(MoveRelativeDataToRegister i) {
+    private MoveRelativeDataToRegister(MoveRelativeDataToRegister i) {
         this.setDataOffsetIndex(i.getDataOffsetIndex());
         this.setDataTableIndex(i.getDataTableIndex());
         this.setRegister(i.getRegister());

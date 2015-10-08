@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Random;
 
 public class InstructionList implements Serializable {
-    public static final long serialVersionUID = 2674027980981161615L;
-    public static final int MAXIMUM_SIZE = 1024;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 2674027980981161615L;
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
     private final List<Instruction> list;
     private final int variablesCount = 8;
     private final double[] variables;
@@ -53,6 +53,8 @@ public class InstructionList implements Serializable {
     public int getSize() {
         return list.size();
     }
+
+    @SuppressWarnings("unused")
     public void addInstructionAtPosition(Instruction instruction, int position) {
         position = fixPosition(position);
         list.add(position,instruction);
@@ -63,13 +65,5 @@ public class InstructionList implements Serializable {
             return position;
         else
             return random.nextInt(list.size());
-    }
-
-    public boolean canGrow() {
-        return getSize() < InstructionList.MAXIMUM_SIZE;
-    }
-
-    public void removeInstructionAt(int i) {
-        list.remove(i);
     }
 }

@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class VarDoubleJumpInstruction extends  VarDoubleInstruction implements JumpInstruction, Serializable {
-    public static final long serialVersionUID = 3733708799704002530L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 3733708799704002530L;
 
     private int address;
 
-    protected VarDoubleJumpInstruction() {
+    VarDoubleJumpInstruction() {
         address = 0;
     }
     @Override
@@ -17,7 +18,7 @@ abstract class VarDoubleJumpInstruction extends  VarDoubleInstruction implements
         return address;
     }
 
-    public void setAddress(int address) {
+    void setAddress(int address) {
         this.address = address;
     }
     @Override

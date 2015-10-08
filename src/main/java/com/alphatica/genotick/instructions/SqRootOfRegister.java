@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class SqRootOfRegister extends RegRegInstruction  implements Serializable {
-    public static final long serialVersionUID = -2097327161652030023L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -2097327161652030023L;
 
-    public SqRootOfRegister(SqRootOfRegister i) {
+    private SqRootOfRegister(SqRootOfRegister i) {
         this.setRegister1(i.getRegister1());
         this.setRegister2(i.getRegister2());
     }

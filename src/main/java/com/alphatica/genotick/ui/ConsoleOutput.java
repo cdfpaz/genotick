@@ -2,6 +2,7 @@ package com.alphatica.genotick.ui;
 
 import com.alphatica.genotick.genotick.Application;
 
+@SuppressWarnings("AccessStaticViaInstance")
 class ConsoleOutput implements UserOutput {
     @Override
     public void errorMessage(String message) {

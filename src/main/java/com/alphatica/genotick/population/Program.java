@@ -5,15 +5,13 @@ import com.alphatica.genotick.genotick.Outcome;
 import com.alphatica.genotick.genotick.Prediction;
 import com.alphatica.genotick.genotick.WeightCalculator;
 import com.alphatica.genotick.instructions.InstructionList;
-import com.alphatica.genotick.instructions.ProgramFunction;
-import com.alphatica.genotick.processor.NoSuchFunctionException;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.List;
 
 public class Program implements Serializable {
+    @SuppressWarnings("unused")
     private static final long serialVersionUID = -32164665564L;
     private InstructionList mainFunction;
     private ProgramName name;
@@ -23,7 +21,7 @@ public class Program implements Serializable {
 
     private int correctPredictions;
     private double inheritedWeight;
-    private DecimalFormat weightFormat = new DecimalFormat("0.00");
+    private final DecimalFormat weightFormat = new DecimalFormat("0.00");
     private int totalOutcomes;
     private long outcomesAtLastChild;
     private int bias;

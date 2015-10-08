@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class DataVarInstruction extends DataInstruction implements Serializable{
-    public static final long serialVersionUID = -7780679428775612562L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -7780679428775612562L;
 
     private int variableArgument;
 
-    public void setVariableArgument(int variableArgument) {
+    void setVariableArgument(int variableArgument) {
         this.variableArgument = variableArgument;
     }
 

@@ -1,9 +1,7 @@
 package com.alphatica.genotick.genotick;
 
 import com.alphatica.genotick.population.Population;
-import com.alphatica.genotick.population.ProgramName;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface TimePointExecutor {
@@ -11,5 +9,5 @@ public interface TimePointExecutor {
 
     void setSettings(Population population, DataSetExecutor dataSetExecutor);
 
-    void savePopulation(String savedPopulation);
+    void savePopulation(@SuppressWarnings("SameParameterValue") String savedPopulation);
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class PopulationDAORAM implements PopulationDAO {
-    Map<ProgramName,Program> map = new HashMap<>();
+    private final Map<ProgramName,Program> map = new HashMap<>();
     private final Random random = new Random();
 
     @Override

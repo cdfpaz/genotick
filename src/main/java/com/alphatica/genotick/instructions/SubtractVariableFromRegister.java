@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class SubtractVariableFromRegister extends RegVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -8639456508845181659L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -8639456508845181659L;
 
-    public SubtractVariableFromRegister(SubtractVariableFromRegister i) {
+    private SubtractVariableFromRegister(SubtractVariableFromRegister i) {
         this.setRegister(i.getRegister());
         this.setVariableArgument(i.getVariableArgument());
     }

@@ -32,12 +32,4 @@ class ProgramResult {
     public Double getWeight() {
         return weight;
     }
-
-    public boolean isPredictionCorrect(Double actualChange) {
-        return prediction.isCorrect(actualChange);
-    }
-
-    public boolean isPredictionOut() {
-        return prediction.isOut();
-    }
 }

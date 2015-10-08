@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class SqRootOfVariable extends VarVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -6025395017177611705L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -6025395017177611705L;
 
-    public SqRootOfVariable(SqRootOfVariable i) {
+    private SqRootOfVariable(SqRootOfVariable i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
     }

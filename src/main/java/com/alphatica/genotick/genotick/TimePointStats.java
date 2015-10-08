@@ -26,18 +26,6 @@ public class TimePointStats {
          * @param prediction predicted direction (up for positive values, down for negative)
          */
         public void update(Double actualFutureChange, Prediction prediction) {
-            if(actualFutureChange > 0) {
-                if(prediction == Prediction.UP) {
-                }
-                if(prediction == Prediction.DOWN) {
-                }
-            }
-            if(actualFutureChange < 0) {
-                if(prediction == Prediction.DOWN) {
-                }
-                if(prediction == Prediction.UP) {
-                }
-            }
             Outcome outcome = Outcome.getOutcome(prediction,actualFutureChange);
             switch (outcome) {
                 case CORRECT: totalPercentPredicted += Math.abs(actualFutureChange); break;

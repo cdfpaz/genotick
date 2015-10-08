@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MultiplyRegisterByRegister extends RegRegInstruction  implements Serializable {
-    public static final long serialVersionUID = 7185538925515388482L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 7185538925515388482L;
 
-    public MultiplyRegisterByRegister(MultiplyRegisterByRegister i) {
+    private MultiplyRegisterByRegister(MultiplyRegisterByRegister i) {
         this.setRegister1(i.getRegister1());
         this.setRegister2(i.getRegister2());
     }

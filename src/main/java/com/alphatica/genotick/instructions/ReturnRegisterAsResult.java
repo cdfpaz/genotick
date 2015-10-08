@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class ReturnRegisterAsResult extends RegInstruction implements Serializable {
-    public static final long serialVersionUID = -884883538461289844L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -884883538461289844L;
 
-    public ReturnRegisterAsResult(ReturnRegisterAsResult i) {
+    private ReturnRegisterAsResult(ReturnRegisterAsResult i) {
         this.setRegister(i.getRegister());
     }
 

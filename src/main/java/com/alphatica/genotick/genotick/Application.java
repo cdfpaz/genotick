@@ -129,7 +129,7 @@ public class Application {
 
     private void logSettings(MainSettings settings) {
         String settingsString = settings.getString();
-        Logger.d(settingsString);
+        Debug.d(settingsString);
     }
 
     private void showSummary(List<TimePointStats> list) {

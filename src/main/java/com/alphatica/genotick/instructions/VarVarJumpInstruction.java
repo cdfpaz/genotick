@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class VarVarJumpInstruction extends VarVarInstruction implements JumpInstruction, Serializable {
-    public static final long serialVersionUID = 6418593915852218659L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 6418593915852218659L;
 
     private int address;
 
-    protected VarVarJumpInstruction() {
+    VarVarJumpInstruction() {
         address = 0;
     }
     @Override
@@ -23,7 +24,7 @@ abstract class VarVarJumpInstruction extends VarVarInstruction implements JumpIn
         address = mutator.getNextInt();
     }
 
-    public void setAddress(int address) {
+    void setAddress(int address) {
         this.address = address;
     }
 }

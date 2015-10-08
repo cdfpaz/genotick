@@ -5,7 +5,8 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class VarInstruction extends Instruction implements Serializable {
-    public static final long serialVersionUID = 5052271226112971349L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 5052271226112971349L;
 
     private int variableArgument;
 
@@ -13,7 +14,7 @@ abstract class VarInstruction extends Instruction implements Serializable {
         return variableArgument;
     }
 
-    public void setVariableArgument(int variableArgument) {
+    void setVariableArgument(int variableArgument) {
         this.variableArgument = variableArgument;
     }
 

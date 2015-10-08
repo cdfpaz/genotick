@@ -1,10 +1,6 @@
 package com.alphatica.genotick.population;
 
 
-import com.alphatica.genotick.instructions.Instruction;
-import com.alphatica.genotick.instructions.InstructionList;
-import com.alphatica.genotick.mutator.Mutator;
-
 import java.util.ArrayList;
 import java.util.List;
 

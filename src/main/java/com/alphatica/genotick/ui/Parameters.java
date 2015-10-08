@@ -4,8 +4,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("SameParameterValue")
 public class Parameters {
-    private Map<String,String> map = new HashMap<>();
+    private final Map<String,String> map = new HashMap<>();
     public Parameters(String[] args) {
         for(String arg: args) {
             String key = parseKey(arg);

@@ -5,15 +5,16 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract public class DataInstruction extends Instruction implements Serializable {
-    public static final long serialVersionUID = -2955270878126863352L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -2955270878126863352L;
     private int dataTableIndex;
     private int dataOffsetIndex;
 
-    public void setDataTableIndex(int dataTableIndex) {
+    void setDataTableIndex(int dataTableIndex) {
         this.dataTableIndex = dataTableIndex;
     }
 
-    public void setDataOffsetIndex(int dataOffsetIndex) {
+    void setDataOffsetIndex(int dataOffsetIndex) {
         this.dataOffsetIndex = dataOffsetIndex;
     }
 

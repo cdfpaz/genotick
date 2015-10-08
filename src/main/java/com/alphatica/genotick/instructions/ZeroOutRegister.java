@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class ZeroOutRegister extends RegInstruction  implements Serializable {
-    public static final long serialVersionUID = 7925325642053814475L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 7925325642053814475L;
 
-    public ZeroOutRegister(ZeroOutRegister i) {
+    private ZeroOutRegister(ZeroOutRegister i) {
         this.setRegister(i.getRegister());
     }
 

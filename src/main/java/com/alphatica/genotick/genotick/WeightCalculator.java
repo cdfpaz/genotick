@@ -10,6 +10,7 @@ public class WeightCalculator {
         //return calculateCorrectVsIncorrectPredictions(program);
     }
 
+    @SuppressWarnings("unused")
     private static double calculateCorrectVsIncorrectPredictions(Program program) {
         int totalPrediction = program.getTotalPredictions();
         if(totalPrediction == 0)

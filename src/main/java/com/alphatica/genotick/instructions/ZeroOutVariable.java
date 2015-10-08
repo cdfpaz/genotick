@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class ZeroOutVariable extends VarInstruction implements Serializable {
-    public static final long serialVersionUID = -7513892893024990050L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -7513892893024990050L;
 
-    public ZeroOutVariable(ZeroOutVariable i) {
+    private ZeroOutVariable(ZeroOutVariable i) {
         this.setVariableArgument(i.getVariableArgument());
     }
 

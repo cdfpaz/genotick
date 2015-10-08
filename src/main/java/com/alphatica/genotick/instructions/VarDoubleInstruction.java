@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class VarDoubleInstruction extends VarInstruction implements Serializable {
-    public static final long serialVersionUID = 5798418310767182684L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 5798418310767182684L;
 
     private double doubleArgument;
 
-    public void setDoubleArgument(double doubleArgument) {
+    void setDoubleArgument(double doubleArgument) {
         this.doubleArgument = doubleArgument;
     }
 

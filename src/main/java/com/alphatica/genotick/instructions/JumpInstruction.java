@@ -1,5 +1,6 @@
 package com.alphatica.genotick.instructions;
 
-public interface JumpInstruction  {
+interface JumpInstruction  {
+    @SuppressWarnings("unused")
     int getAddress();
 }

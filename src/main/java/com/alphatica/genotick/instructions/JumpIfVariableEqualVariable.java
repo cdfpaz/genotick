@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpIfVariableEqualVariable extends VarVarJumpInstruction implements Serializable{
-    public static final long serialVersionUID = 7095626127058648815L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 7095626127058648815L;
 
-    public JumpIfVariableEqualVariable(JumpIfVariableEqualVariable i) {
+    private JumpIfVariableEqualVariable(JumpIfVariableEqualVariable i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
         this.setAddress(i.getAddress());

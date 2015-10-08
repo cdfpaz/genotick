@@ -118,8 +118,8 @@ public class Reversal {
         }
     }
 
-    private String mkString(Number[] table, String string) {
-        StringBuffer sb = new StringBuffer();
+    private String mkString(Number[] table, @SuppressWarnings("SameParameterValue") String string) {
+        StringBuilder sb = new StringBuilder();
         int count = 0;
         for(Number number: table) {
             sb.append(number);

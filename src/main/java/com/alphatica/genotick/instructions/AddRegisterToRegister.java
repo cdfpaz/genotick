@@ -5,9 +5,11 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class AddRegisterToRegister extends RegRegInstruction implements Serializable {
-    public static final long serialVersionUID = 3465536183323672440L;
 
-    public AddRegisterToRegister(AddRegisterToRegister i) {
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 3465536183323672440L;
+
+    private AddRegisterToRegister(AddRegisterToRegister i) {
         this.setRegister1(i.getRegister1());
         this.setRegister2(i.getRegister2());
     }

@@ -9,14 +9,12 @@ import com.alphatica.genotick.population.ProgramExecutorSettings;
 
 public class SimpleProcessor extends Processor implements ProgramExecutor {
 
-    private final static int MAX_RECURSION_LEVEL = 1024;
     private static final int MAX_JUMP = 255;
     private double[] registers;
     private Program program;
     private ProgramData data;
     private Double programResult;
     private InstructionList instructionList;
-    private int recursionLevel;
     private boolean terminateInstructionList;
     private int changeInstructionPointer;
     private boolean newJump;
@@ -43,8 +41,6 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
                 TooManyInstructionsExecuted |
                 ArithmeticException ex) {
             return Prediction.OUT;
-        } catch(NoAddressForJumpException ex) {
-            return Prediction.OUT;
         }
     }
 
@@ -52,7 +48,6 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
     public void setSettings(ProgramExecutorSettings settings) {
         registers = new double[totalRegisters];
         programResult = null;
-        recursionLevel = 0;
         instructionLimitMultiplier = settings.instructionLimit;
     }
 
@@ -61,7 +56,6 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
         this.data = programData;
         programResult = null;
         instructionList = null;
-        recursionLevel = 0;
         terminateInstructionList = false;
         changeInstructionPointer = 0;
         newJump = false;
@@ -86,7 +80,6 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
     }
 
     private void executeInstructionList(InstructionList list)  {
-        checkRecursionLevel();
         list.zeroOutVariables();
         //Debug.d("Starting to execute instruction list, size",list.getSize());
         terminateInstructionList = false;
@@ -116,11 +109,6 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
         } while (!terminateInstructionList && programResult == null);
     }
 
-    private void checkRecursionLevel() {
-        if (recursionLevel++ > MAX_RECURSION_LEVEL) {
-            throw new TooManyRecursionLevels();
-        }
-    }
 
     private SimpleProcessor() {
     }
@@ -165,7 +153,7 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
     }
 
     @Override
-    public void execute(TerminateInstructionList ins) {
+    public void execute(@SuppressWarnings("unused") TerminateInstructionList ins) {
         terminateInstructionList = true;
     }
 
@@ -688,6 +676,7 @@ public class SimpleProcessor extends Processor implements ProgramExecutor {
 
     private int getRelativeOffset(DataInstruction ins) {
         int variable = (int)Math.round(instructionList.getVariable(ins.getDataOffsetIndex()));
+        //noinspection UnnecessaryLocalVariable
         int offset = Math.abs(variable % dataMaximumOffset);
         return offset;
     }

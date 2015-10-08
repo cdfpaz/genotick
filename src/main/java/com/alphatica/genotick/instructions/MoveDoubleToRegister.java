@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveDoubleToRegister extends RegDoubleInstruction  implements Serializable {
-    public static final long serialVersionUID = -8885197267150260362L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -8885197267150260362L;
 
-    public MoveDoubleToRegister(MoveDoubleToRegister i) {
+    private MoveDoubleToRegister(MoveDoubleToRegister i) {
         this.setRegister(i.getRegister());
         this.setDoubleArgument(i.getDoubleArgument());
     }

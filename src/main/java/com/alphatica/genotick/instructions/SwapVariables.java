@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class SwapVariables extends VarVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -6328103475159894381L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -6328103475159894381L;
 
-    public SwapVariables(SwapVariables i) {
+    private SwapVariables(SwapVariables i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
     }

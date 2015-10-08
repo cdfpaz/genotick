@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpIfRegisterEqualDouble extends RegDoubleJumpInstruction implements Serializable{
-    public static final long serialVersionUID = -3677241217620353564L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -3677241217620353564L;
 
-    public JumpIfRegisterEqualDouble(JumpIfRegisterEqualDouble i) {
+    private JumpIfRegisterEqualDouble(JumpIfRegisterEqualDouble i) {
         this.setDoubleArgument(i.getDoubleArgument());
         this.setRegister(i.getRegister());
         this.setAddress(i.getAddress());

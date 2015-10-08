@@ -6,9 +6,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class MoveVariableToRegister extends RegVarInstruction  implements Serializable {
-    public static final long serialVersionUID = -3943721532302613198L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -3943721532302613198L;
 
-    public MoveVariableToRegister(MoveVariableToRegister i) {
+    private MoveVariableToRegister(MoveVariableToRegister i) {
         this.setRegister(i.getRegister());
         this.setVariableArgument(i.getVariableArgument());
     }

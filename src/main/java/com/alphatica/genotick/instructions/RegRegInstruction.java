@@ -5,7 +5,8 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 public abstract class RegRegInstruction extends Instruction implements Serializable {
-    public static final long serialVersionUID = 6740011263492418256L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 6740011263492418256L;
 
     private byte register1;
     private byte register2;
@@ -14,7 +15,7 @@ public abstract class RegRegInstruction extends Instruction implements Serializa
         return register1;
     }
 
-    public void setRegister1(byte register1) {
+    void setRegister1(byte register1) {
         this.register1 = Registers.validateRegister(register1);
     }
 
@@ -22,7 +23,7 @@ public abstract class RegRegInstruction extends Instruction implements Serializa
         return register2;
     }
 
-    public void setRegister2(byte register2) {
+    void setRegister2(byte register2) {
         this.register2 = Registers.validateRegister(register2);
     }
 

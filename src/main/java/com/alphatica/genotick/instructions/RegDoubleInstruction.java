@@ -5,11 +5,12 @@ import com.alphatica.genotick.mutator.Mutator;
 import java.io.Serializable;
 
 abstract class RegDoubleInstruction extends RegInstruction implements Serializable {
-    public static final long serialVersionUID = -8574875071910464339L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -8574875071910464339L;
 
     private double doubleArgument;
 
-    public void setDoubleArgument(double doubleArgument) {
+    void setDoubleArgument(double doubleArgument) {
         this.doubleArgument = doubleArgument;
     }
 

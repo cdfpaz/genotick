@@ -23,6 +23,7 @@ class Main {
             exit(ERROR_CODES.NO_INPUT);
         }
         output = UserInputOutputFactory.getUserOutput();
+        //noinspection ConstantConditions
         if(output == null) {
             exit(ERROR_CODES.NO_OUTPUT);
         }
@@ -46,7 +47,7 @@ class Main {
         input.show(application);
     }
 
-    public static void exit(ERROR_CODES code) {
+    private static void exit(ERROR_CODES code) {
         System.exit(code.getValue());
     }
 }

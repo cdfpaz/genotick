@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpIfVariableLessThanVariable extends VarVarJumpInstruction implements Serializable{
-    public static final long serialVersionUID = -849210590326352304L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = -849210590326352304L;
 
-    public JumpIfVariableLessThanVariable(JumpIfVariableLessThanVariable i) {
+    private JumpIfVariableLessThanVariable(JumpIfVariableLessThanVariable i) {
         this.setVariable1Argument(i.getVariable1Argument());
         this.setVariable2Argument(i.getVariable2Argument());
         this.setAddress(i.getAddress());

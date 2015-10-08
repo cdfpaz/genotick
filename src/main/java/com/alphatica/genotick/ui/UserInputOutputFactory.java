@@ -1,7 +1,7 @@
 package com.alphatica.genotick.ui;
 
 public class UserInputOutputFactory {
-    public static final String INPUT_STRING = "input";
+    private static final String INPUT_STRING = "input";
 
     public static UserInput getUserInput(Parameters parameters) {
         String input = parameters.getValue(INPUT_STRING);

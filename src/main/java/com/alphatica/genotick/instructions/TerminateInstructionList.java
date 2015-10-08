@@ -6,7 +6,8 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class TerminateInstructionList extends Instruction  implements Serializable {
-    public static final long serialVersionUID = 5432002295875235819L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 5432002295875235819L;
 
     public TerminateInstructionList() {
     }

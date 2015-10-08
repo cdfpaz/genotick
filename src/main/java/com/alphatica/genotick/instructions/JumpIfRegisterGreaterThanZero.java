@@ -5,9 +5,10 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public class JumpIfRegisterGreaterThanZero extends RegJumpInstruction implements Serializable{
-    public static final long serialVersionUID = 2932427307222806723L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 2932427307222806723L;
 
-    public JumpIfRegisterGreaterThanZero(JumpIfRegisterGreaterThanZero i) {
+    private JumpIfRegisterGreaterThanZero(JumpIfRegisterGreaterThanZero i) {
         this.setRegister(i.getRegister());
         this.setAddress(i.getAddress());
     }

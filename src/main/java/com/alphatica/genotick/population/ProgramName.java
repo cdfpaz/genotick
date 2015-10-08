@@ -3,6 +3,7 @@ package com.alphatica.genotick.population;
 import java.io.Serializable;
 
 public class ProgramName implements Serializable {
+    @SuppressWarnings("unused")
     private final static long serialVersionUID = 32136468798664L;
     private final long name;
 

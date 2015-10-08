@@ -17,9 +17,6 @@ public enum Prediction {
         return Prediction.OUT;
     }
 
-    public boolean isOut() {
-        return this == Prediction.OUT;
-    }
     public boolean isCorrect(Double actualFutureChange) {
         return actualFutureChange * value > 0;
     }

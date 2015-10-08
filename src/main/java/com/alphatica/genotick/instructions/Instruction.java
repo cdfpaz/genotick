@@ -7,7 +7,8 @@ import com.alphatica.genotick.processor.Processor;
 import java.io.Serializable;
 
 public abstract class Instruction  implements Serializable {
-    public static final long serialVersionUID = 6038774498356414583L;
+    @SuppressWarnings("unused")
+    private static final long serialVersionUID = 6038774498356414583L;
 
     abstract public void executeOn(Processor processor);
 
