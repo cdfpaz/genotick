@@ -114,9 +114,12 @@ public class PopulationDAOFileSystem implements PopulationDAO {
 
     @Override
     public void setSettings(String pathToDir) {
-        boolean success = new File(pathToDir).mkdirs();
+        File dirFile = new File(pathToDir);
+        if(dirFile.exists())
+            return;
+        boolean success = dirFile.mkdirs();
         if(!success) {
-            throw  new DAOException("Unable to delete dir: " + pathToDir);
+            throw new DAOException("Unable to create dir: " + pathToDir);
         }
         this.programsPath = pathToDir;
     }

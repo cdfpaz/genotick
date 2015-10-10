@@ -400,7 +400,7 @@ public class Debug {
         final File file;
         public ToFile(String path) {
             file = new File(path);
-            if(file.delete())
+            if(file.exists() && !file.delete())
                 throw new RuntimeException("Unable to delete file: " + path);
         }
 

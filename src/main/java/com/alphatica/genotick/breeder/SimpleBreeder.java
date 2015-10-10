@@ -86,7 +86,7 @@ public class SimpleBreeder implements ProgramBreeder {
 
     private void breedPopulation(Population population, List<ProgramInfo> list) {
         while(population.haveSpaceToBreed()) {
-            Program parent1 = getPossibleParent(population,list);
+            Program parent1 = getPossibleParent(population, list);
             Program parent2 = getPossibleParent(population,list);
             if(parent1 == null || parent2 == null)
                 break;
@@ -127,11 +127,19 @@ public class SimpleBreeder implements ProgramBreeder {
      */
     private InstructionList blendInstructionLists(InstructionList list1, InstructionList list2) {
         InstructionList instructionList = InstructionList.createInstructionList();
-        int break1 = Math.abs(mutator.getNextInt()) % list1.getSize();
-        int break2 = Math.abs(mutator.getNextInt()) % list2.getSize();
+        int break1 = getBreakPoint(list1);
+        int break2 = getBreakPoint(list2);
         copyBlock(instructionList, list1,0,break1);
         copyBlock(instructionList, list2,break2, list2.getSize());
         return instructionList;
+    }
+
+    private int getBreakPoint(InstructionList list) {
+        int size = list.getSize();
+        if(size == 0)
+            return 0;
+        else
+            return Math.abs(mutator.getNextInt() % size);
     }
 
     private void copyBlock(InstructionList destination, InstructionList source, int start, int stop) {
