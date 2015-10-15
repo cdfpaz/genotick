@@ -4,8 +4,17 @@ import com.alphatica.genotick.genotick.Application;
 import com.alphatica.genotick.genotick.MainSettings;
 import com.alphatica.genotick.genotick.TimePoint;
 
+import java.io.Console;
+
 @SuppressWarnings("unused")
 class ConsoleInput implements UserInput {
+    private final Console console;
+    public ConsoleInput() {
+        console = System.console();
+        if(console == null) {
+            throw new RuntimeException("Unable to create system console");
+        }
+    }
 
     @Override
     public void show(Application application) {
@@ -13,7 +22,7 @@ class ConsoleInput implements UserInput {
         settings.startTimePoint = new TimePoint(getLong("Start time point",settings.startTimePoint.toString()));
         TimePoint nextTimePoint = new TimePoint(settings.startTimePoint.getValue() + 1);
         settings.endTimePoint = new TimePoint(getLong("End time point", nextTimePoint.toString()));
-        settings.dataLoader = getString("Data directory",settings.dataLoader);
+        settings.dataLoader = getString("Data directory", settings.dataLoader);
         settings.populationDAO = getString("Population storage", settings.populationDAO);
         settings.executionOnly = getBoolean("Prediction only", settings.executionOnly);
         settings.processorInstructionLimit = getInteger("Processor instruction limit", settings.processorInstructionLimit);
@@ -62,7 +71,7 @@ class ConsoleInput implements UserInput {
 
     private String getString(String message, String def) {
         displayMessage(message, def);
-        String response = System.console().readLine();
+        String response = console.readLine();
         if(response.equals(""))
             return def;
         else
